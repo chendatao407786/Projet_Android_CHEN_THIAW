@@ -14,6 +14,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,7 +38,7 @@ public class MessagerieFragment extends Fragment {
     //new conversation
     TextView textViewReceiver;
     FloatingActionButton btnNewMsg;
-    TextView txtMessage;
+    EditText txtMessage;
     String str;
 
     public MessagerieFragment() {
@@ -60,7 +61,7 @@ public class MessagerieFragment extends Fragment {
         View v=  inflater.inflate(R.layout.fragment_messagerie, container, false);
 
         textViewReceiver = (TextView)v.findViewById(R.id.receiver);
-        txtMessage = (TextView)v.findViewById(R.id.boxMessage);
+        txtMessage = (EditText) v.findViewById(R.id.boxMessage);
         btnNewMsg = (FloatingActionButton)v.findViewById(R.id.btn_add_msg);
 
         btnNewMsg.setOnClickListener(new View.OnClickListener() {
@@ -124,6 +125,7 @@ public class MessagerieFragment extends Fragment {
         super.onCreate(savedInstanceState);
         this.setRetainInstance(true);
     }
+
 
     public void sendMessage(String message, String receiver) {
         String token = PreferencesManager.getInstance(getContext()).loadAccessToken().trim();

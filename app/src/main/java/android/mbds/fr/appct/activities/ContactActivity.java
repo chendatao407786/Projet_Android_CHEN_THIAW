@@ -2,6 +2,9 @@ package android.mbds.fr.appct.activities;
 
 import android.content.Intent;
 import android.mbds.fr.appct.R;
+import android.mbds.fr.appct.api.model.Login;
+import android.mbds.fr.appct.api.service.RetrofitInstance;
+import android.mbds.fr.appct.api.service.UserClient;
 import android.mbds.fr.appct.database.Database;
 import android.mbds.fr.appct.models.Contact;
 import android.os.Bundle;
@@ -9,10 +12,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class ContactActivity extends AppCompatActivity {
+    private UserClient userClient = RetrofitInstance.getRetrofitInstance().create(UserClient.class);
 
     EditText etUsername;
     Button btnSave;
@@ -32,7 +42,7 @@ public class ContactActivity extends AppCompatActivity {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addContact();
+                addContactSQLite();
             }
         });
 
@@ -51,9 +61,13 @@ public class ContactActivity extends AppCompatActivity {
         }
     }*/
 
-    public void addContact(){
+    public void addContactSQLite(){
         db= Database.getIstance(this);
         db.addContact(etUsername.getText().toString());
+
+        //ct(chen_datao)[|]PONG[|]android.security.keystore.AndroidKeyStoreRSAPublicKe2d4b318c
+
+        //for adding on tokidev
 
         //redirect to login page
         Intent intent = new Intent(this, MainActivity.class);

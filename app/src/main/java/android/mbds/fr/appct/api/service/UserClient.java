@@ -15,7 +15,7 @@ public interface UserClient {
     @POST("login")
     Call<User> login(@Body Login login);
 
-    @GET("fetchMessages")
+    //@GET("fetchMessages")
     //Call<List<ReceivedMsg>> getMessages(@Header("Authorization") String authToken);
 
     @POST("sendMsg")

@@ -124,7 +124,7 @@ public class CryptoManager {
         return publicKey;
     }
 
-    public String chiffrer(String alias, String res){
+    public String encrypter(String alias, String res){
         //must use piblickey for ciphering msg
         String resfinal = "";
         try {
@@ -149,7 +149,7 @@ public class CryptoManager {
         return resfinal;
     }
 
-    public String dechiffrer(String alias, String res){
+    public String decrypter(String alias, String res){
         String resfinal = "";
         try {
             KeyStore.Entry entry = keyStore.getEntry(alias, null);

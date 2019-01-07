@@ -60,6 +60,7 @@ public class LoginActivity extends AppCompatActivity {
         //create PK_RSA and save by sharedpreferences
         PublicKey publicKey = CryptoManager.getInstance().generateMyRsaKey();
         PreferencesManager.getInstance(getApplicationContext()).saveRsaPublic(publicKey.toString());
+        Log.i("PK PK PK", publicKey.toString());
         //Toast.makeText(this, "PK userTest : "+publicKey.toString(), Toast.LENGTH_SHORT).show();
 
 
@@ -92,7 +93,6 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(LoginActivity.this, response.body().getAccess_token(), Toast.LENGTH_SHORT).show();
                         String token = response.body().getAccess_token();
                         PreferencesManager.getInstance(getApplicationContext()).saveAccessToken(token);
-                        //setDefaults("TOKEN", token, getApplicationContext());
 
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent);
