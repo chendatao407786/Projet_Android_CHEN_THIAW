@@ -50,7 +50,7 @@ public class ContactListFragment extends Fragment {
 
         contactAdapter = new ContactAdapter(result);
 
-        View v = inflater.inflate(R.layout.fragment_contact_list, container, false);
+        View v = inflater.inflate(R.layout.fragment_contact_listbis, container, false);
 
         fct = (FloatingActionButton)v.findViewById(R.id.btn_add_contact);
 

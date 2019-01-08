@@ -92,7 +92,9 @@ public class LoginActivity extends AppCompatActivity {
                     if (response.isSuccessful()) {
                         Toast.makeText(LoginActivity.this, response.body().getAccess_token(), Toast.LENGTH_SHORT).show();
                         String token = response.body().getAccess_token();
+                        String refreshToken = response.body().getRefresh_token();
                         PreferencesManager.getInstance(getApplicationContext()).saveAccessToken(token);
+                        PreferencesManager.getInstance(getApplicationContext()).saveRefreshToken(refreshToken);
 
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent);

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".activities.RegisterActivity">
+    tools:context="android.mbds.fr.appct.activities.RegisterActivity">
 
     <ImageView
         android:src="@drawable/logo"

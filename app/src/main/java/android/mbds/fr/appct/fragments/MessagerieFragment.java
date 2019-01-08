@@ -6,6 +6,7 @@ import android.mbds.fr.appct.activities.MainActivity;
 import android.mbds.fr.appct.api.model.Message;
 import android.mbds.fr.appct.api.service.RetrofitInstance;
 import android.mbds.fr.appct.api.service.UserClient;
+import android.mbds.fr.appct.utils.CryptoManager;
 import android.mbds.fr.appct.utils.PreferencesManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -69,7 +70,10 @@ public class MessagerieFragment extends Fragment {
             public void onClick(View v) {
                 //String msg = txtMessage.getText().toString();
                 //String rcv = textViewReceiver.getText().toString();
-                sendMessage(txtMessage.getText().toString(), str);
+                String res = CryptoManager.getInstance().encrypter("myKeyStore", txtMessage.getText().toString());
+                String resfinal = "ct(chen_thiaw)[|]MSG[|]"+res;
+
+                sendMessage(resfinal, str);
                 /*String token = PreferencesManager.getInstance(getContext()).loadAccessToken().trim();
                 Toast.makeText(getContext(), token, Toast.LENGTH_SHORT).show();*/
 

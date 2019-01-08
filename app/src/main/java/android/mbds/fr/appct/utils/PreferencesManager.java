@@ -90,6 +90,7 @@ public class PreferencesManager
     }
 
     public String loadRefreshToken(){
+
         return sharedPreferences.getString(KEY_REFRESH_TOKEN, "");
     }
 
@@ -127,6 +128,11 @@ public class PreferencesManager
         return (!(sharedPreferences.getString(key, "").equals("")));
     }
 
+    public String refreshConnexion(){
+        String valideToken = loadRefreshToken();
+        saveAccessToken(valideToken);
+        return valideToken;
+    }
 
 
 }

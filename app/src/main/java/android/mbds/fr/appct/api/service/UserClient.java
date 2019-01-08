@@ -2,7 +2,10 @@ package android.mbds.fr.appct.api.service;
 
 import android.mbds.fr.appct.api.model.Login;
 import android.mbds.fr.appct.api.model.Message;
+import android.mbds.fr.appct.api.model.ReceivedMsg;
 import android.mbds.fr.appct.api.model.User;
+
+import java.util.List;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -15,8 +18,8 @@ public interface UserClient {
     @POST("login")
     Call<User> login(@Body Login login);
 
-    //@GET("fetchMessages")
-    //Call<List<ReceivedMsg>> getMessages(@Header("Authorization") String authToken);
+    @GET("fetchMessages")
+    Call<List<ReceivedMsg>> getMessages(@Header("Authorization") String authToken);
 
     @POST("sendMsg")
     Call<ResponseBody> sendMessage(@Header("Authorization") String authToken, @Body Message message);

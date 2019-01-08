@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/design_default_color_primary_dark"
-    tools:context=".fragments.MessagerieFragment">
+    tools:context="android.mbds.fr.appct.fragments.MessagerieFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

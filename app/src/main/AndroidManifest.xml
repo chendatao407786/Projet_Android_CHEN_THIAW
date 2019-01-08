@@ -39,8 +39,11 @@
         <activity android:name=".activities.RegisterActivity" />
         <activity android:name=".activities.ContactActivity" />
 
-        <service android:name=".services.MyServices" />
+        <!-- <service android:name=".services.MyServices" /> -->
 
+        <activity android:name=".api.BaobabActivity" >
+        </activity>
+        <activity android:name=".api.TalkActivity"></activity>
     </application>
 
 </manifest>
